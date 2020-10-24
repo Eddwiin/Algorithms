@@ -1,4 +1,4 @@
-// https://medium.com/@seanoughton/problem-solving-patterns-frequency-counter-c7b26b3f31f
+// frenquency counter: https://medium.com/@seanoughton/problem-solving-patterns-frequency-counter-c7b26b3f31f
 (function () {
 
     //Exercice: Create a function taking two arrays then compare if the value of one of the arrays is squared into the other
