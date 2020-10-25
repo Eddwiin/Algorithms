@@ -7,14 +7,15 @@
     // where the average of the pair equals the target average. There may be more than one pair 
     // that matches the average target
 
-    // Qu'est-ce que je dois faire ?
-    // Créer une fonction qui prend en parametre un tableau de int et un float
-    // Je vais utiliser le Multiples pointer pattern
-    // Je créais une variable min et max pour parcourir mon tableau de gauche et de droite
-    // Avant je regarde si ma valeur de gauche ou de droite n'est pas égale à mon float
-    // Si ce n'est pas le cas, j'additionne la plus petite valeur du tableau (min) et le plus grand (max)
-    // Si la somme est trop grande, je déinscrémente de un le max
-    // Sinon j'incrémente le plus petit
+    // How i will proceed ?
+    // Create a function taking array of int sorted and a target average
+    // Use Multiples pointer pattern
+    // Create a variable "left" to store the min index and a variable "right" to store the max
+    // In the "While", I will check that the value of my array[left] or array[right] is equal to the target average
+    // If yes, I return true. If not, I'm going store: sum = (array[left] + array[right]) / 2
+    // Then I will check if the target average is equal to target average in parameter
+    // If the sum is lower than target's parameter, I have to increase the left
+    // If the sum is greater than target's parameter, I have to deincrement right
 
     const averagePair = (arr, target) => {
         let left = 0;
