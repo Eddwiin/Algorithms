@@ -16,6 +16,8 @@
     // If it's greater than the longest's value, then the new longest become the operation's value
     // Store the position of letter in seen's variable: seen[key] = i + 1;
 
+
+    // A REFAIRE
     const findLongestSubString = (str) => {
         let start = 0;
         let seen = {};
