@@ -22,5 +22,5 @@
         return arr;
     }
 
-    console.log(insert([1,5,6,8,7,4,1], 0, 17))
+    console.log(insert([1,5,6,8,7,4,1], 3, 17))
 })()
