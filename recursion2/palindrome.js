@@ -25,11 +25,11 @@
             : false
     }
 
-    // console.log(isPalindrome('awesome')) // false
-    // console.log(isPalindrome('foobar')) //  false
-    // console.log(isPalindrome('tacocat')) // true
-    // console.log(isPalindrome('amanaplanacanalpanama')) // true
-    // console.log(isPalindrome('amanaplanacanalpandemonium')) // false
+    console.log(isPalindrome('awesome')) // false
+    console.log(isPalindrome('foobar')) //  false
+    console.log(isPalindrome('tacocat')) // true
+    console.log(isPalindrome('amanaplanacanalpanama')) // true
+    console.log(isPalindrome('amanaplanacanalpandemonium')) // false
 
 
     // Solution 2 with multiple pointers pattern
@@ -46,6 +46,8 @@
         let left = 0;
         let right = word.length - 1;
 
+        if (word.lengt < 2) return false;
+        
         while (left !== right) {
             if (word[left] !== word[right]) {
                 return false;
@@ -57,9 +59,9 @@
         return true;
     }
 
-    console.log(isPalindrome2('awesome')) // false
-    console.log(isPalindrome('foobar')) //  false
-    console.log(isPalindrome('tacocat')) // true
-    console.log(isPalindrome('amanaplanacanalpanama')) // true
-    console.log(isPalindrome('amanaplanacanalpandemonium')) // false
+    // console.log(isPalindrome2('awesome')) // false
+    // console.log(isPalindrome2('foobar')) //  false
+    // console.log(isPalindrome2('tacocat')) // true
+    // console.log(isPalindrome2('amanaplanacanalpanama')) // true
+    // console.log(isPalindrome2('amanaplanacanalpandemonium')) // false
 })()

@@ -19,11 +19,7 @@
     const someRecursive = (arr, cb) => {
 
         if (arr.length === 0) return false;
-
-        if (cb(arr[arr.length - 1])) {
-            return true;
-        }
-
+        if (cb(arr[arr.length - 1])) return true;
         return someRecursive(arr.slice(0, arr.length - 1), cb)
     }
 

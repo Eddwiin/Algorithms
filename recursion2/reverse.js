@@ -22,4 +22,10 @@
     console.log(reverse('awesome'))// 'emosewa'
     console.log(reverse('rithmschool')) // 'loohcsmhtir'
 
+
+    // Solution of Colt Steel:
+    // function reverse(str){
+    //     if(str.length <= 1) return str;
+    //     return reverse(str.slice(1)) + str[0];
+    // }
 })()
