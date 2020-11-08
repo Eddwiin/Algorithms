@@ -26,23 +26,25 @@
 
 
     const sameFrequency = (nb1, nb2) => {
-        
-        if (nb1.toString().length !== nb2.toString().length) {
-            return false;
+        if (nb1 < 0 || nb2 < 0) return false;
+
+        const nb1Str = nb1.toString();
+        const nb2Str = nb2.toString();
+
+        if (nb1Str.length !== nb2Str.length) return false;
+
+        let counter1 = {};
+        let counter2 = {};
+
+        for (let i = 0; i < nb1Str.length; i++) {
+            counter1[nb1Str[i]] = (nb1Str[i] || 0) + 1;
         }
 
-        const counter1 = {};
-        const counter2 = {};
+        for (let i = 0; i < nb2Str.length; i++) {
+            counter2[nb2Str[i]] = (nb2Str[i] || 0) + 1;
+        }
 
-        nb1.toString().split('').forEach(value => {
-            counter1[value] = (counter1[value] || 0) + 1
-        });
-
-        nb2.toString().split('').forEach(value => {
-            counter2[value] = (counter2[value] || 0) +1;
-        })
-
-        for (let key in counter1) {
+        for (key in counter1) {
             if (!(key in counter2)) {
                 return false;
             }
@@ -50,4 +52,12 @@
 
         return true;
     }
+
+
+
+    console.log(sameFrequency(182, 281)); // true
+    console.log(sameFrequency(34, 14)); // false
+    console.log(sameFrequency(3589578, 5879385)); // true
+    console.log(sameFrequency(22, 222)); // false
+
 })()

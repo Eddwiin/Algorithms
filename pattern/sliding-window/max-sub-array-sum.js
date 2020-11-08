@@ -9,45 +9,55 @@
     // Note that a subarray must consist of consecutive elements from the original array.
     // In the first example below, [100, 200, 300] is a subarray of the original array, but [100, 300] is not.
 
-    // Qu'est ce que je dois faire ?
-    // Je dois créer une fonction  maxSubarraySum(arr, n);
-    // Je dois cumuler un sous-tableau à partir de "arr" par rapport à n
 
-    // Exemple sur premiere iteration sur maxSubarraySum([100,200,300,400], 2)
-    // Je stocke le cumul de 100 et 200
-    // Ensuite je cumul avec  300;
-    // Puis j'avance mon index à 200
-    // J'applique le meme cumul
-    // Je m'arrete quand n + i >= arr.length
+    // Qu'est-ce que je dois faire ?
+    // Je dois créer une fonction maxSubarraySum(arr, n) où arr est un tableau de nombres et n est  un nombre
+    // Je dois retourner la somme maximum du tableau par rapport à n
 
-    // Mes variables:
-    // maxSum déclarer au début de la fonction
-    // tempSump déclarer dans ma boucle
-    // tempSum sera comparé avec sum à chaque fois que j'incremente i
-    // Si c'est plus grand alors sum = tempSum
-
-    // Solution of Colt Steel A REFAIRE
+    // Pour résoudre le problème:
+    // Je dois parcourir de 1 (currentIndex) à n en cumulant leur valeur
+    // Ensuite de n à n * 2 en cumulant leur valeur etc...
+    // Je m'arrête quand n + currentIndex > arr.length
 
 
-    function maxSubarraySum(arr, num){
-        if (arr.length < num) return null;
-     
-        let total = 0;
-        for (let i=0; i<num; i++){
-           total += arr[i];
+    function maxSubarraySum(arr, n) {
+
+        let currentIndex = 0;
+        let sum = 0;
+        let tempSum = 0;
+
+        if (n <= 0 || n > arr.length) return null;
+
+        while (n + currentIndex < arr.length) {
+            tempSum += arr[currentIndex];
+            currentIndex++;
+            iteration++;
+            if (currentIndex > 1 && n % currentIndex === 0) {
+                sum = Math.max(sum, tempSum)
+                tempSum = 0;
+            }
         }
-        let currentTotal = total;
-        for (let i = num; i < arr.length; i++) {
-           currentTotal += arr[i] - arr[i-num];
-           total = Math.max(total, currentTotal);
-        }
-        return total;
+
+
+
+        // if (arr.length < num) return null;
+
+        // let total = 0;
+        // for (let i=0; i<num; i++){
+        //    total += arr[i];
+        // }
+        // let currentTotal = total;
+        // for (let i = num; i < arr.length; i++) {
+        //    currentTotal += arr[i] - arr[i-num];
+        //    total = Math.max(total, currentTotal);
+        // }
+        // return total;
     }
 
     console.log(maxSubarraySum([100, 200, 300, 400], 2)) // Expected 700
-    console.log(maxSubarraySum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4)) // Expected 39
-    console.log(maxSubarraySum([-3, 4, 0, -2, 6, -1], 4)) // Expected 5
-    console.log(maxSubarraySum([2, 3,], 3)) // Expected null
+    // console.log(maxSubarraySum([1, 4, 2, 10, 23, 3, 1, 0, 20], 4)) // Expected 39
+    // console.log(maxSubarraySum([-3, 4, 0, -2, 6, -1], 4)) // Expected 5
+    // console.log(maxSubarraySum([2, 3,], 3)) // Expected null
 
 
 

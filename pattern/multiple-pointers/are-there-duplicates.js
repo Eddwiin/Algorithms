@@ -16,17 +16,26 @@
     // If there aren't the same, I will move the index of the second to the next then I check again
     // If there are the same, I will move the index of my first number to the next  as well as the second
 
-    const areThereDuplicates = (...arguments) => {
-        arr.sort((a, b) => a > b);
+
+    const areThereDuplicates = (...args) => {
+        args.sort((a,b) => a > b)
         let start = 0;
         let next = 1;
-        while (next < arr.length) {
-            if (arr[start] === arr[next]) {
-                return true
+
+        while (next < args.length) {
+            if (args[start] === args[next]) {
+                return true;
             }
-            start++
-            next++
+
+            start++;
+            next++;
         }
-        return false
+
+        return false;
     }
+
+    console.log(areThereDuplicates(1, 2, 3)); // false
+    console.log(areThereDuplicates(1,2,2)) // true
+    console.log(areThereDuplicates('a','b','c','d','a')) // false
+
 })()
