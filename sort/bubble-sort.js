@@ -23,7 +23,6 @@
 
 
     const sort = (arr) => {
-
         for (let i = arr.length; i > 0; i--) {
             let isSwap = false;
             for (let j = 0; j < arr.length; j++) {
@@ -40,6 +39,27 @@
         return arr;
     }
 
+    const swap = (arr, idx1, idx2) => {
+        const temp = arr[idx1];
+        arr[idx1] = arr[idx2];
+        arr[idx2] = temp;
+    }
+
+    //with recursive
+    const sort2 = (arr, n = arr.length) => {
+        if (n === 1) {
+            return arr;
+        }
+
+        for (let i = 0; i < n; i++) {
+            if (arr[i] > arr[i + 1]) {
+                swap(arr, i, i + 1);
+            }
+        }
+        return bubbleSort(arr, n - 1)
+    }
+
     // console.log(sort([8, 1, 2, 3, 6, 5, 4]));
     console.log(sort([8, 1, 2, 3, 4, 5, 6, 7]))
+    console.log(sort2([8, 1, 2, 3, 4, 5, 6, 7]))
 })()
